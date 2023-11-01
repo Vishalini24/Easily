@@ -1,0 +1,43 @@
+<%if(job){%>
+<div class="card ms-5 me-5 mt-5 mb-3">
+    <img src="/images/job.avif" class="job-image">
+    <a href="/jobs" class="pagingbuttton ms-4 mt-2"><i class="fa-solid fa-arrow-left"></i> Back to job listings</a>
+    <h1 class="mt-4 ms-3">Job Details</h1>
+    <% if(message){ %>
+        <div class="alert alert-success" role="alert">
+           <%= message %>
+        </div>
+    <%}%>
+    <h1 class="ms-3 mt-2"><span class="designation"><%=job.jobdesignation%></span> opportunity in <%=job.joblocation%> at <span class="companyname"><%=job.companyname%></span></h1>
+    <div class="body ms-3">
+        <div class="mt-3">
+            <button class="bg-success activer ">Actively recruiting <i class="fa-solid fa-chart-line ms-2"></i></button>
+            <% if(locals.userEmail) { %>
+            <a class="edit ms-2" href="/update/<%=job.id%>"><i class="fa-regular fa-pen-to-square"></i></a>
+            <button class="delete" onclick="deleteJob('<%=job.id%>')"><i class="fa-regular fa-trash-can"></i></button>
+            <% } %>
+        </div>
+        <div class="ms-3 mt-3">
+            <p><%=job.companyname%><br><span class="me-2"><%=job.jobcategory%></span><%=job.jobdesignation%></p>
+        </div>
+        <div class="ms-5 mt-3">
+            <p><i class="fa-solid fa-map-location-dot me-2"></i><%=job.joblocation%><br>
+               <i class="fa-solid fa-indian-rupee-sign me-2"></i><%=job.salary%> lakhs<br>
+               <i class="fa-regular fa-hourglass-half me-2"></i>Apply by <%=job.applyby%><br>
+               <i class="fa-solid fa-square-poll-vertical me-2  "></i>Number of openings: <%=job.numberofopenings%><br>
+               <a  href="/<%=job.id%>/applicants" class="applicants"><i class="fa-solid fa-people-group me-2"></i>Applicants:<%= job.applicants?.length || 0 %></a>
+            </p>
+        </div>
+        <div class="skills ms-5 mb-3">
+            <%job.skillsrequired.forEach(skill =>{ %>  
+                    <button><%=skill%></button>
+            <%  }) %>
+        </div> 
+        <button class="mb-3 ms-5 mb-5 applynow"><a href="/<%=job.id%>/apply">Apply now</a></button><br>
+        <button class="bg-success mb-3 ms-3 post">Posted: <%=job.jobposted%></button>
+    </div>
+   
+</div>
+
+<%}%>
+

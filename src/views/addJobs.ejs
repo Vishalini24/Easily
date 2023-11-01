@@ -1,0 +1,66 @@
+<h2 class="mt-5 ms-4">Post a New Job</h2>
+<form action="/add" method="post" class="addjobs">
+    <% if(message){ %>
+        <div class="alert alert-danger" role="alert">
+           <%= message %>
+        </div>
+    <%}%>
+    <div class="mb-3">
+        <label for="jobcategory">Search job category</label>
+        <select class="form-select inputbox" id="jobcategory" name="jobcategory">
+            <option value="Tech">Tech</option>
+            <option value="Non-Tech">Non-Tech</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="jobdesignation">Search job designation</label>
+        <select class="form-select inputbox" id="jobdesignation" name="jobdesignation">
+            <option value="SDE">SDE</option>
+            <option value="HR">HR</option>
+            <option value="DevOps">DevOps</option>
+            <option value="MERN Developer">MERN Developer</option>
+            <option value="MEAN Developer">MEAN Developer</option>
+            <option value="Java Developer">Java Developer</option>
+            <option value="Front-End Developer">Front-End Developer</option>
+            <option value="Back-End Developer">Back-End Developer</option>
+            <option value="Full-Stack Developer">Full-Stack Developer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="joblocation">Job Location</label>
+        <input type="text" class="form-control inputbox" id="joblocation" name="joblocation" placeholder="Enter job location">
+    </div>
+    <div class="mb-3">
+        <label for="companyname">Company Name</label>
+        <input type="text" class="form-control inputbox" id="companyname" name="companyname" placeholder="Enter company name">
+    </div>
+    <div class="mb-3">
+        <label for="salary">Salary (per annum)</label>
+        <input type="number" class="form-control inputbox" id="salary" name="salary"placeholder="Enter salary">
+    </div>
+    <div class="mb-3">
+        <label for="numberofopenings">Total Positions</label>
+        <div class="input-group">
+            <input type="number" class="form-control inputbox" id="numberofopenings"  name="numberofopenings" placeholder="Enter total positions">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="skillsrequired">Select Skills(Minimum 3 skills)</label>
+        <select multiple class="form-select skillsinput" id="skillsrequired" name="skillsrequired">
+            <option value="Java">Java</option>
+            <option value="NodeJs">NodeJs</option>
+            <option value="JS">JS</option>
+            <option value="SQL">SQL</option>
+            <option value="Angular">Angular</option>
+            <option value="MongoDB">MongoDB</option>
+            <option value="Express">Express</option>
+            <option value="SpringBoot">SpringBoot</option>
+            <option value="C++">C++</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="applyby">Apply By (dd-mm-yyyy)</label>
+        <input type="date" class="form-control inputbox" id="applyby" name="applyby">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

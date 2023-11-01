@@ -1,0 +1,22 @@
+<a href="/<%=jobID%>/update/<%=applicant.applicantid%>" class="pagingbuttton ms-4 mt-5"><i class="fa-solid fa-arrow-left"></i> Back</a>
+<h1 class="mt-5 mb-3 ms-4">Update details</h1>
+<form action="/<%=jobID%>/update/<%=applicant.applicantid%>" method="post" class="updateapplicant">
+    <div class="mb-3">
+        <label for="name">Name</label>
+        <input type="text" class="form-control inputbox" id="name" name="name" placeholder="Enter your name" value="<%=applicant.name%>">
+    </div>
+    <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control inputbox" id="email" name="email" placeholder="Enter your email" value="<%=applicant.email%>">
+    </div>
+    <div class="mb-3">
+        <label for="contact">Contact</label>
+        <input type="number" class="form-control inputbox" id="contact" name="contact"placeholder="+91____ __ ____" value="<%=applicant.contact%>">
+    </div>
+    <div class="form-group">
+        <label for="resume" class="curr_resume">Current Resume:</label>
+        <input type="text" class="form-control inputbox" id="resume" name="resume" value="<%=applicant.resumePath%>">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3" onclick="return confirm('Are you sure you want to edit this applicant details?')">Submit</button>
+</form>
+

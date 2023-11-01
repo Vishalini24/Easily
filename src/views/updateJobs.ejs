@@ -1,0 +1,61 @@
+
+<h2 class="mt-5 ms-4">Update Details</h2>
+
+<form action="/update/<%=job.id%>" method="post" class="applyform">
+    <div class="mb-3">
+        <label for="jobcategory">Search job category</label>
+        <select class="form-select inputbox" id="jobcategory" name="jobcategory">
+            <option value="Tech"  <% if (job.jobcategory === 'Tech') { %>selected<% } %>>Tech</option>
+            <option value="Non-Tech"  <% if (job.jobcategory === 'Non-Tech') { %> selected<% } %>>Non-Tech</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="jobdesignation">Search job designation</label>
+        <select class="form-select inputbox" id="jobdesignation" name="jobdesignation">
+            <option value="SDE"  <% if (job.jobdesignation === 'SDE') { %>selected<% } %>>SDE</option>
+            <option value="HR"  <% if (job.jobdesignation === 'HR') { %>selected<% } %>>HR</option>
+            <option value="DevOps"  <% if (job.jobdesignation === 'DevOps') { %>selected<% } %>>DevOps</option>
+            <option value="MERN Developer"  <% if (job.jobdesignation === 'MERN Developer') { %>selected<% } %>>MERN Developer</option>
+            <option value="MEAN Developer" <% if (job.jobdesignation === 'MEAN Developer') { %>selected<% } %>>MEAN Developer</option>
+            <option value="Java Developer" <% if (job.jobdesignation === 'Java Developer') { %>selected<% } %>>Java Developer</option>
+            <option value="Front-End Developer" <% if (job.jobdesignation === 'Front-End Developer') { %>selected<% } %>>Front-End Developer</option>
+            <option value="Back-End Developer" <% if (job.jobdesignation === 'Back-End Developer') { %>selected<% } %>>Back-End Developer</option>
+            <option value="Full-Stack Developer" <% if (job.jobdesignation === 'Full-Stack Developer') { %>selected<% } %>>Full-Stack Developer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="joblocation">Job Location</label>
+        <input type="text" class="form-control inputbox" id="joblocation" name="joblocation" placeholder="Enter job location" value="<%=job.joblocation%>">
+    </div>
+    <div class="mb-3">
+        <label for="companyname">Company Name</label>
+        <input type="text" class="form-control inputbox" id="companyname" name="companyname" placeholder="Enter company name" value="<%=job.companyname%>">
+    </div>
+    <div class="mb-3">
+        <label for="salary">Salary</label>
+        <input type="text" class="form-control inputbox" id="salary" name="salary"placeholder="Enter salary" value="<%=job.salary%>">
+    </div>
+    <div class="mb-3">
+        <label for="numberofopenings">Total Positions</label>
+        <input type="number" class="form-control inputbox" id="numberofopenings"  name="numberofopenings" placeholder="Enter total positions" value="<%=job.numberofopenings%>">
+    </div>
+    <div class="mb-3">
+        <label for="skillsrequired">Select Skills</label>
+        <select multiple class="form-select skillsinput" id="skillsrequired" name="skillsrequired">
+            <option value="Java" <% if (job.skillsrequired.includes('Java')) { %>selected<% } %>>Java</option>
+            <option value="NodeJs" <% if (job.skillsrequired.includes('NodeJs')) { %>selected<% } %>>NodeJs</option>
+            <option value="JS" <% if (job.skillsrequired.includes('JS')) { %>selected<% } %>>JS</option>
+            <option value="SQL" <% if (job.skillsrequired.includes('SQL')) { %>selected<% } %>>SQL</option>
+            <option value="Angular" <% if (job.skillsrequired.includes('Angular')) { %>selected<% } %>>Angular</option>
+            <option value="MongoDB" <% if (job.skillsrequired.includes('MongoDB')) { %>selected<% } %>>MongoDB</option>
+            <option value="Express" <% if (job.skillsrequired.includes('Express')) { %>selected<% } %>>Express</option>
+            <option value="SpringBoot" <% if (job.skillsrequired.includes('SpringBoot')) { %>selected<% } %>>SpringBoot</option>
+            <option value="C++" <% if (job.skillsrequired.includes('C++')) { %>selected<% } %>>C++</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="applyby">Apply By (dd-mm-yyyy)</label>
+        <input type="date" class="form-control inputbox" id="applyby" name="applyby" value="<%=job.applyby%>">
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="updateJob('<%=job.id%>')">Submit</button>
+</form>
